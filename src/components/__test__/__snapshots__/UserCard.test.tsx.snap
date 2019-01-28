@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <UserCard /> components 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <UserCard
+    email="test@example.com"
+    id={1}
+    name="Test User"
+    username="test"
+    website="example.com"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <Card
+        fluid={true}
+      >
+        <CardContent>
+          <CardHeader>
+            Test User
+          </CardHeader>
+          <CardMeta>
+            @
+            test
+          </CardMeta>
+          <CardDescription>
+            <Icon
+              as="i"
+              name="envelope"
+            />
+             
+            test@example.com
+          </CardDescription>
+          <CardDescription>
+            <Icon
+              as="i"
+              name="globe"
+            />
+             
+            example.com
+          </CardDescription>
+        </CardContent>
+      </Card>,
+      "replace": false,
+      "to": "/user/1",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <CardContent>
+          <CardHeader>
+            Test User
+          </CardHeader>
+          <CardMeta>
+            @
+            test
+          </CardMeta>
+          <CardDescription>
+            <Icon
+              as="i"
+              name="envelope"
+            />
+             
+            test@example.com
+          </CardDescription>
+          <CardDescription>
+            <Icon
+              as="i"
+              name="globe"
+            />
+             
+            example.com
+          </CardDescription>
+        </CardContent>,
+        "fluid": true,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <CardHeader>
+              Test User
+            </CardHeader>,
+            <CardMeta>
+              @
+              test
+            </CardMeta>,
+            <CardDescription>
+              <Icon
+                as="i"
+                name="envelope"
+              />
+               
+              test@example.com
+            </CardDescription>,
+            <CardDescription>
+              <Icon
+                as="i"
+                name="globe"
+              />
+               
+              example.com
+            </CardDescription>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Test User",
+            },
+            "ref": null,
+            "rendered": "Test User",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                "@",
+                "test",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "@",
+              "test",
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <Icon
+                  as="i"
+                  name="envelope"
+                />,
+                " ",
+                "test@example.com",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "as": "i",
+                  "name": "envelope",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              " ",
+              "test@example.com",
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <Icon
+                  as="i"
+                  name="globe"
+                />,
+                " ",
+                "example.com",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "as": "i",
+                  "name": "globe",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              " ",
+              "example.com",
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <Card
+          fluid={true}
+        >
+          <CardContent>
+            <CardHeader>
+              Test User
+            </CardHeader>
+            <CardMeta>
+              @
+              test
+            </CardMeta>
+            <CardDescription>
+              <Icon
+                as="i"
+                name="envelope"
+              />
+               
+              test@example.com
+            </CardDescription>
+            <CardDescription>
+              <Icon
+                as="i"
+                name="globe"
+              />
+               
+              example.com
+            </CardDescription>
+          </CardContent>
+        </Card>,
+        "replace": false,
+        "to": "/user/1",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <CardContent>
+            <CardHeader>
+              Test User
+            </CardHeader>
+            <CardMeta>
+              @
+              test
+            </CardMeta>
+            <CardDescription>
+              <Icon
+                as="i"
+                name="envelope"
+              />
+               
+              test@example.com
+            </CardDescription>
+            <CardDescription>
+              <Icon
+                as="i"
+                name="globe"
+              />
+               
+              example.com
+            </CardDescription>
+          </CardContent>,
+          "fluid": true,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <CardHeader>
+                Test User
+              </CardHeader>,
+              <CardMeta>
+                @
+                test
+              </CardMeta>,
+              <CardDescription>
+                <Icon
+                  as="i"
+                  name="envelope"
+                />
+                 
+                test@example.com
+              </CardDescription>,
+              <CardDescription>
+                <Icon
+                  as="i"
+                  name="globe"
+                />
+                 
+                example.com
+              </CardDescription>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "Test User",
+              },
+              "ref": null,
+              "rendered": "Test User",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  "@",
+                  "test",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "@",
+                "test",
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <Icon
+                    as="i"
+                    name="envelope"
+                  />,
+                  " ",
+                  "test@example.com",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "as": "i",
+                    "name": "envelope",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                " ",
+                "test@example.com",
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <Icon
+                    as="i"
+                    name="globe"
+                  />,
+                  " ",
+                  "example.com",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "as": "i",
+                    "name": "globe",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                " ",
+                "example.com",
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
