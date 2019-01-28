@@ -2,7 +2,15 @@ import React from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const UserCard = ({ id, name, username, email, website }: IUserCardProps) => (
+interface IProps {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  website: string;
+}
+
+const UserCard = ({ id, name, username, email, website }: IProps) => (
   <Link to={`/user/${id}`}>
     <Card fluid>
       <Card.Content>
