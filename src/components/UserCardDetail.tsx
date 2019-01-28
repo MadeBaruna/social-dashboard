@@ -27,6 +27,7 @@ interface IProps {
   company: {
     name: string;
   };
+  currentLocation: string;
 }
 
 const UserCardDetail = ({
@@ -38,6 +39,7 @@ const UserCardDetail = ({
   phone,
   address,
   company,
+  currentLocation,
 }: IProps) => (
   <Card fluid>
     <Card.Content>
@@ -64,10 +66,10 @@ const UserCardDetail = ({
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <Link to={`/user/${id}/albums`}>
+      <Link to={`/user/${id}${currentLocation === 'posts' ? '/albums' : ''}`}>
         <Button floated="right" primary>
-          <Icon name="images" />
-          Albums
+          <Icon name={currentLocation === 'posts' ? 'images' : 'sticky note'} />
+          {currentLocation === 'posts' ? 'Albums' : 'Posts'}
         </Button>
       </Link>
     </Card.Content>

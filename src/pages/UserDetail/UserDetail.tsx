@@ -13,7 +13,10 @@ interface IProps {
 
 class UserDetail extends Component<IProps> {
   public render() {
-    const { id } = this.props.match.params;
+    const {
+      params: { id },
+      path,
+    } = this.props.match;
 
     return (
       <>
@@ -31,12 +34,16 @@ class UserDetail extends Component<IProps> {
             }
 
             const { user } = data;
-            return <UserCardDetail {...user} />;
+            return (
+              <UserCardDetail
+                currentLocation={path === '/user/:id' ? 'posts' : 'albums'}
+                {...user}
+              />
+            );
           }}
         </Query>
         <Switch>
           <Route exact path="/user/:id" component={PostList} />
-          <Route exact path="/user/:id/posts" component={PostList} />
         </Switch>
       </>
     );

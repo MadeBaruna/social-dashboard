@@ -22,7 +22,6 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={UserList} />
                 <Route exact path="/user/:id" component={UserDetail} />
-                <Route exact path="/user/:id/posts" component={UserDetail} />
                 <Route exact path="/user/:id/albums" component={UserDetail} />
                 <Route component={NotFoundPage} />
               </Switch>
