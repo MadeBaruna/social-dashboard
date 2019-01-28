@@ -10,11 +10,10 @@ const Div = styled.div`
 `;
 
 const HeaderLink = styled(Link)`
-  color: #fefefe;
+  color: #444;
 
   &:hover {
-    color: #fefefe;
-    text-decoration: underline;
+    color: #777;
   }
 `;
 
