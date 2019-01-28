@@ -27,7 +27,7 @@ class UserDetail extends Component<IProps> {
             }
 
             if (error || !data) {
-              return <p>Something wrong happened 😕 {error}</p>;
+              return <p>Something wrong happened 😕</p>;
             }
 
             const { user } = data;
