@@ -52,9 +52,23 @@ it('Show user detail', async () => {
     </Router>,
   );
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve));
   wrapper.update();
 
   const card = wrapper.find(UserCardDetail);
   expect(card).toHaveLength(1);
+  expect(card.get(0).props).toEqual({
+    id: 1,
+    name: 'Leanne Graham',
+    email: 'Sincere@april.biz',
+    username: 'Bret',
+    address: {
+      city: 'Gwenborough',
+    },
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org',
+    company: {
+      name: 'Romaguera-Crona',
+    },
+  });
 });
