@@ -2,10 +2,10 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: GetPosts
+// GraphQL mutation operation: CreatePost
 // ====================================================
 
-export interface GetPosts_postsByUser {
+export interface CreatePost_post {
   __typename: "Post";
   userId: number;
   id: number;
@@ -13,10 +13,12 @@ export interface GetPosts_postsByUser {
   body: string;
 }
 
-export interface GetPosts {
-  postsByUser: GetPosts_postsByUser[];
+export interface CreatePost {
+  post: CreatePost_post;
 }
 
-export interface GetPostsVariables {
+export interface CreatePostVariables {
   userId: number;
+  title: string;
+  body: string;
 }

@@ -14,6 +14,7 @@ it('renders <UserCardDetail /> components', () => {
       phone="1234567890"
       address={{ city: 'Malang' }}
       company={{ name: 'Kumparan' }}
+      currentLocation="posts"
     />,
   );
   expect(wrapper).toMatchSnapshot();

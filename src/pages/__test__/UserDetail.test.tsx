@@ -70,5 +70,6 @@ it('Show user detail', async () => {
     company: {
       name: 'Romaguera-Crona',
     },
+    currentLocation: 'posts',
   });
 });

@@ -21,6 +21,7 @@ class PostList extends Component<IProps> {
 
     return (
       <Wrapper>
+        <PostCard isNew={true} userId={Number(id)} />
         <Query<GetPosts>
           query={GetPostsQuery}
           variables={{ userId: Number(id) }}
@@ -35,9 +36,9 @@ class PostList extends Component<IProps> {
             }
 
             const { postsByUser } = data;
-            return postsByUser.map((post) => (
-              <PostCard key={post.id} {...post} />
-            ));
+            return postsByUser
+              .reverse()
+              .map((post) => <PostCard key={post.id} {...post} />);
           }}
         </Query>
       </Wrapper>
