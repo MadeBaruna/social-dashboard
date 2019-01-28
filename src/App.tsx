@@ -8,6 +8,7 @@ import { client } from './graphql/client';
 import Header from './components/Header';
 import UserList from './pages/UserList';
 import NotFoundPage from './pages/NotFoundPage';
+import UserDetail from './pages/UserDetail';
 
 class App extends Component {
   public render() {
@@ -20,6 +21,7 @@ class App extends Component {
               <Header />
               <Switch>
                 <Route exact path="/" component={UserList} />
+                <Route exact path="/user/:id" component={UserDetail} />
                 <Route component={NotFoundPage} />
               </Switch>
             </>

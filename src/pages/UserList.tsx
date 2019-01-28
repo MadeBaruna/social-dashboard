@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card, Loader } from 'semantic-ui-react';
+import { Grid, Loader } from 'semantic-ui-react';
 import { Query } from 'react-apollo';
 import UserCard from '../components/UserCard';
 import { GetUsers } from '../graphql/queries/__generated__/GetUsers';
