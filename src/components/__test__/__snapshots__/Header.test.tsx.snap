@@ -62,11 +62,10 @@ ShallowWrapper {
             "isStatic": true,
             "rules": Array [
               "
-  color: #fefefe;
+  color: #444;
 
   &:hover {
-    color: #fefefe;
-    text-decoration: underline;
+    color: #777;
   }
 ",
             ],
@@ -158,11 +157,10 @@ ShallowWrapper {
               "isStatic": true,
               "rules": Array [
                 "
-  color: #fefefe;
+  color: #444;
 
   &:hover {
-    color: #fefefe;
-    text-decoration: underline;
+    color: #777;
   }
 ",
               ],
