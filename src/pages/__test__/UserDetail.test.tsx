@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { GetUserDetail as GetUserDetailQuery } from '../../graphql/queries/GetUserDetail';
-import UserDetail from '../UserDetail';
+import UserDetail from '../UserDetail/UserDetail';
 import UserCardDetail from '../../components/UserCardDetail';
 
 it('Show user detail', async () => {

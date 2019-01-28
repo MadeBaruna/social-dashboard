@@ -1,13 +1,15 @@
 import React from 'react';
-import { Card, Icon, Grid, Image, Button } from 'semantic-ui-react';
+import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const DetailWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap-reverse;
 
   & > div:first-child {
+    white-space: nowrap;
     flex: 1;
   }
 `;

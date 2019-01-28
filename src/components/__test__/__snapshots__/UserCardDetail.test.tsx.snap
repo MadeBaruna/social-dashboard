@@ -525,8 +525,10 @@ ShallowWrapper {
                     "
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap-reverse;
 
   & > div:first-child {
+    white-space: nowrap;
     flex: 1;
   }
 ",
@@ -1128,8 +1130,10 @@ ShallowWrapper {
                       "
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap-reverse;
 
   & > div:first-child {
+    white-space: nowrap;
     flex: 1;
   }
 ",

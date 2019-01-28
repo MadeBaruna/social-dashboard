@@ -1,0 +1,610 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <PostCard /> components 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PostCard
+    body="qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet"
+    id={1}
+    title="this is a test title"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <CardContent>
+          <CardHeader>
+            this is a test title
+          </CardHeader>
+          <CardDescription>
+            <span>
+              qui consequuntur ducimus
+              <br />
+            </span>
+            <span>
+              possimus quisquam amet similique
+              <br />
+            </span>
+            <span>
+              suscipit porro ipsam amet
+              <br />
+            </span>
+          </CardDescription>
+        </CardContent>,
+        <CardContent
+          extra={true}
+          textAlign="right"
+        >
+          <Link
+            replace={false}
+            to="/post/1"
+          >
+            <Button
+              as="button"
+            >
+              Show Comments
+            </Button>
+          </Link>
+          <Button
+            as="button"
+            icon="pencil"
+          />
+          <Button
+            as="button"
+            icon="trash"
+          />
+        </CardContent>,
+      ],
+      "fluid": true,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <CardHeader>
+              this is a test title
+            </CardHeader>,
+            <CardDescription>
+              <span>
+                qui consequuntur ducimus
+                <br />
+              </span>
+              <span>
+                possimus quisquam amet similique
+                <br />
+              </span>
+              <span>
+                suscipit porro ipsam amet
+                <br />
+              </span>
+            </CardDescription>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "this is a test title",
+            },
+            "ref": null,
+            "rendered": "this is a test title",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <span>
+                  qui consequuntur ducimus
+                  <br />
+                </span>,
+                <span>
+                  possimus quisquam amet similique
+                  <br />
+                </span>,
+                <span>
+                  suscipit porro ipsam amet
+                  <br />
+                </span>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "qui consequuntur ducimus",
+                    <br />,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "qui consequuntur ducimus",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "possimus quisquam amet similique",
+                    <br />,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "possimus quisquam amet similique",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": "2",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "suscipit porro ipsam amet",
+                    <br />,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "suscipit porro ipsam amet",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                ],
+                "type": "span",
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <Link
+              replace={false}
+              to="/post/1"
+            >
+              <Button
+                as="button"
+              >
+                Show Comments
+              </Button>
+            </Link>,
+            <Button
+              as="button"
+              icon="pencil"
+            />,
+            <Button
+              as="button"
+              icon="trash"
+            />,
+          ],
+          "extra": true,
+          "textAlign": "right",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Button
+                as="button"
+              >
+                Show Comments
+              </Button>,
+              "replace": false,
+              "to": "/post/1",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "button",
+                "children": "Show Comments",
+              },
+              "ref": null,
+              "rendered": "Show Comments",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "button",
+              "icon": "pencil",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "button",
+              "icon": "trash",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <CardContent>
+            <CardHeader>
+              this is a test title
+            </CardHeader>
+            <CardDescription>
+              <span>
+                qui consequuntur ducimus
+                <br />
+              </span>
+              <span>
+                possimus quisquam amet similique
+                <br />
+              </span>
+              <span>
+                suscipit porro ipsam amet
+                <br />
+              </span>
+            </CardDescription>
+          </CardContent>,
+          <CardContent
+            extra={true}
+            textAlign="right"
+          >
+            <Link
+              replace={false}
+              to="/post/1"
+            >
+              <Button
+                as="button"
+              >
+                Show Comments
+              </Button>
+            </Link>
+            <Button
+              as="button"
+              icon="pencil"
+            />
+            <Button
+              as="button"
+              icon="trash"
+            />
+          </CardContent>,
+        ],
+        "fluid": true,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <CardHeader>
+                this is a test title
+              </CardHeader>,
+              <CardDescription>
+                <span>
+                  qui consequuntur ducimus
+                  <br />
+                </span>
+                <span>
+                  possimus quisquam amet similique
+                  <br />
+                </span>
+                <span>
+                  suscipit porro ipsam amet
+                  <br />
+                </span>
+              </CardDescription>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "this is a test title",
+              },
+              "ref": null,
+              "rendered": "this is a test title",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    qui consequuntur ducimus
+                    <br />
+                  </span>,
+                  <span>
+                    possimus quisquam amet similique
+                    <br />
+                  </span>,
+                  <span>
+                    suscipit porro ipsam amet
+                    <br />
+                  </span>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "qui consequuntur ducimus",
+                      <br />,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "qui consequuntur ducimus",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {},
+                      "ref": null,
+                      "rendered": null,
+                      "type": "br",
+                    },
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": "1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "possimus quisquam amet similique",
+                      <br />,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "possimus quisquam amet similique",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {},
+                      "ref": null,
+                      "rendered": null,
+                      "type": "br",
+                    },
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": "2",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "suscipit porro ipsam amet",
+                      <br />,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "suscipit porro ipsam amet",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {},
+                      "ref": null,
+                      "rendered": null,
+                      "type": "br",
+                    },
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <Link
+                replace={false}
+                to="/post/1"
+              >
+                <Button
+                  as="button"
+                >
+                  Show Comments
+                </Button>
+              </Link>,
+              <Button
+                as="button"
+                icon="pencil"
+              />,
+              <Button
+                as="button"
+                icon="trash"
+              />,
+            ],
+            "extra": true,
+            "textAlign": "right",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Button
+                  as="button"
+                >
+                  Show Comments
+                </Button>,
+                "replace": false,
+                "to": "/post/1",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "as": "button",
+                  "children": "Show Comments",
+                },
+                "ref": null,
+                "rendered": "Show Comments",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "button",
+                "icon": "pencil",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "button",
+                "icon": "trash",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

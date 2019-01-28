@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Grid, Loader, Image, Card, Icon, Header } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 import { Query } from 'react-apollo';
-import { GetUserDetail } from '../graphql/queries/__generated__/GetUserDetail';
-import { GetUserDetail as GetUserDetailQuery } from '../graphql/queries/GetUserDetail';
-import { match } from 'react-router';
-import UserCardDetail from '../components/UserCardDetail';
+import { GetUserDetail } from '../../graphql/queries/__generated__/GetUserDetail';
+import { GetUserDetail as GetUserDetailQuery } from '../../graphql/queries/GetUserDetail';
+import { match, Switch, Route } from 'react-router';
+import UserCardDetail from '../../components/UserCardDetail';
+import PostList from './PostList';
 
 interface IProps {
   match: match<{ id: string }>;
@@ -15,7 +16,7 @@ class UserDetail extends Component<IProps> {
     const { id } = this.props.match.params;
 
     return (
-      <Grid columns={2} stackable>
+      <>
         <Query<GetUserDetail>
           query={GetUserDetailQuery}
           variables={{ id: Number(id) }}
@@ -33,7 +34,11 @@ class UserDetail extends Component<IProps> {
             return <UserCardDetail {...user} />;
           }}
         </Query>
-      </Grid>
+        <Switch>
+          <Route exact path="/user/:id" component={PostList} />
+          <Route exact path="/user/:id/posts" component={PostList} />
+        </Switch>
+      </>
     );
   }
 }
