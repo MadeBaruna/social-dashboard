@@ -9,13 +9,11 @@ import { DeletePost as DeletePostMutation } from '../graphql/mutations/DeletePos
 import {
   DeletePost,
   DeletePostVariables,
-  DeletePost_deletePost,
 } from '../graphql/mutations/__generated__/DeletePost';
 import { GetPosts as GetPostsQuery } from '../graphql/queries/GetPosts';
 import {
   GetPosts,
   GetPostsVariables,
-  GetPosts_postsByUser,
 } from '../graphql/queries/__generated__/GetPosts';
 
 interface IProps {
@@ -28,6 +26,8 @@ interface IProps {
 
 interface IState {
   isEditing: boolean;
+  title: string;
+  body: string;
 }
 
 class PostCard extends Component<IProps, IState> {
@@ -41,15 +41,22 @@ class PostCard extends Component<IProps, IState> {
 
   public state = {
     isEditing: false || this.props.isNew,
+    title: this.props.title,
+    body: this.props.body,
   };
 
   public render() {
-    const { id, title, body } = this.props;
+    const { id } = this.props;
+    const { title, body } = this.state;
     const isEditing = this.props.isNew || this.state.isEditing;
 
     if (isEditing) {
       return (
-        <PostCardEditor {...this.props} cancelEdit={this.setEditing(false)} />
+        <PostCardEditor
+          {...this.props}
+          updateCard={this.updateCard}
+          cancelEdit={this.setEditing(false)}
+        />
       );
     }
 
@@ -89,8 +96,12 @@ class PostCard extends Component<IProps, IState> {
     this.setState({ isEditing });
   }
 
+  private updateCard = (title: string, body: string) => {
+    this.setState({ title, body });
+  }
+
   private delete = (
-    mutation: MutationFn<DeletePost_deletePost, DeletePostVariables>,
+    mutation: MutationFn<DeletePost, DeletePostVariables>,
   ) => () => {
     const { id } = this.props;
 
@@ -103,31 +114,36 @@ class PostCard extends Component<IProps, IState> {
 
   private update = (
     cache: DataProxy,
-    result: FetchResult<any, Record<string, any>>,
+    { data }: FetchResult<DeletePost, Record<string, any>>,
   ) => {
+    if (!data) {
+      return;
+    }
+
     const { userId } = this.props;
 
-    const data = cache.readQuery<GetPosts, GetPostsVariables>({
+    const postList = cache.readQuery<GetPosts, GetPostsVariables>({
       query: GetPostsQuery,
       variables: { userId },
     });
 
-    let postsByUser: GetPosts_postsByUser[] = [];
-    if (data) {
-      postsByUser = data.postsByUser;
-
-      const deletePostData = result.data as DeletePost;
-      postsByUser = postsByUser.filter(
-        (post) => post.id !== deletePostData.deletePost.id,
-      );
+    if (!postList) {
+      return;
     }
+
+    const deletedPostId = data.deletePost.id;
+    const { postsByUser } = postList;
+
+    const newPoststByUser = postsByUser.filter(
+      (post) => post.id !== deletedPostId,
+    );
 
     cache.writeQuery({
       query: GetPostsQuery,
       variables: {
         userId,
       },
-      data: { postsByUser },
+      data: { postsByUser: newPoststByUser },
     });
   }
 }

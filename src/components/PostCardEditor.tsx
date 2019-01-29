@@ -8,20 +8,24 @@ import {
   InputOnChangeData,
   Header,
   TextAreaProps,
-  FormProps,
 } from 'semantic-ui-react';
-import { Mutation, MutationFn } from 'react-apollo';
+import { Mutation, MutationFn, FetchResult } from 'react-apollo';
 import { CreatePost as CreatePostMutation } from '../graphql/mutations/CreatePost';
 import {
-  CreatePost_post,
   CreatePostVariables,
+  CreatePost,
 } from '../graphql/mutations/__generated__/CreatePost';
+import { UpdatePost as UpdatePostMutation } from '../graphql/mutations/UpdatePost';
 import { GetPosts as GetPostsQuery } from '../graphql/queries/GetPosts';
 import {
   GetPosts,
   GetPostsVariables,
-  GetPosts_postsByUser,
 } from '../graphql/queries/__generated__/GetPosts';
+import { DataProxy } from 'apollo-cache';
+import {
+  UpdatePost,
+  UpdatePostVariables,
+} from '../graphql/mutations/__generated__/UpdatePost';
 
 interface IProps {
   userId: number;
@@ -30,6 +34,7 @@ interface IProps {
   body: string;
   isNew: boolean;
   cancelEdit: () => void;
+  updateCard: (title: string, body: string) => void;
 }
 
 interface IState {
@@ -39,83 +44,62 @@ interface IState {
 
 class PostCardEditor extends Component<IProps, IState> {
   public state = {
-    isEditing: false,
     title: this.props.title,
     body: this.props.body,
   };
 
   public render() {
     const { title, body } = this.state;
-    const { isNew, cancelEdit, userId } = this.props;
+    const { isNew, cancelEdit } = this.props;
 
     return (
       <Card fluid>
-        <Mutation
-          mutation={CreatePostMutation}
-          update={(cache, { data: { post } }) => {
-            const data = cache.readQuery<GetPosts, GetPostsVariables>({
-              query: GetPostsQuery,
-              variables: { userId },
-            });
-
-            let postsByUser: GetPosts_postsByUser[] = [];
-            if (data) {
-              postsByUser = data.postsByUser;
-            }
-
-            postsByUser.push(post);
-
-            cache.writeQuery({
-              query: GetPostsQuery,
-              variables: {
-                userId,
-              },
-              data: { postsByUser },
-            });
-
-            this.setState({ title: '', body: '' });
-          }}
-        >
-          {(CreatePost, { loading }) => (
-            <>
-              {isNew && (
-                <Card.Content>
-                  <Header as="h3">Create a new post</Header>
-                </Card.Content>
-              )}
-              <Card.Content>
-                <Form>
-                  <Form.Field>
-                    <Input
-                      label="Title"
-                      placeholder="Post Title"
-                      value={title}
-                      onChange={this.onInputChange}
-                    />
-                  </Form.Field>
-                  <Form.Field>
-                    <TextArea
-                      autoHeight
-                      placeholder="What do you think?"
-                      value={body}
-                      onInput={this.onTextAreaChange}
-                    />
-                  </Form.Field>
-                </Form>
-              </Card.Content>
-              <Card.Content extra textAlign="right">
-                <Button
-                  loading={loading}
-                  onClick={this.submit(CreatePost)}
-                  primary
-                >
-                  {isNew ? 'Submit' : 'Save'}
-                </Button>
-                {!isNew && <Button onClick={cancelEdit}>Cancel</Button>}
-              </Card.Content>
-            </>
-          )}
-        </Mutation>
+        {isNew && (
+          <Card.Content>
+            <Header as="h3">Create a new post</Header>
+          </Card.Content>
+        )}
+        <Card.Content>
+          <Form>
+            <Form.Field>
+              <Input
+                label="Title"
+                placeholder="Post Title"
+                value={title}
+                onChange={this.onInputChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <TextArea
+                autoHeight
+                placeholder="What do you think?"
+                value={body}
+                onInput={this.onTextAreaChange}
+              />
+            </Form.Field>
+          </Form>
+        </Card.Content>
+        <Card.Content extra textAlign="right">
+          <Mutation mutation={CreatePostMutation} update={this.update}>
+            {(CreatePostFunction, { loading: loadingCreate }) => (
+              <Mutation mutation={UpdatePostMutation}>
+                {(UpdatePostFunction, { loading: loadingUpdate }) => (
+                  <Button
+                    loading={loadingCreate || loadingUpdate}
+                    onClick={this.submit(
+                      CreatePostFunction,
+                      UpdatePostFunction,
+                    )}
+                    primary
+                  >
+                    {isNew ? 'Submit' : 'Save'}
+                  </Button>
+                )}
+              </Mutation>
+            )}
+          </Mutation>
+          {!isNew && <Button onClick={cancelEdit}>Cancel</Button>}
+        </Card.Content>
       </Card>
     );
   }
@@ -129,18 +113,67 @@ class PostCardEditor extends Component<IProps, IState> {
   }
 
   private submit = (
-    mutation: MutationFn<CreatePost_post, CreatePostVariables>,
-  ) => () => {
-    const { userId } = this.props;
+    createMutationFunction: MutationFn<CreatePost, CreatePostVariables>,
+    updateMutationFunction: MutationFn<UpdatePost, UpdatePostVariables>,
+  ) => async () => {
+    const { id, userId, isNew, updateCard, cancelEdit } = this.props;
     const { title, body } = this.state;
 
-    mutation({
+    if (isNew) {
+      createMutationFunction({
+        variables: {
+          userId,
+          title,
+          body,
+        },
+      });
+    } else {
+      await updateMutationFunction({
+        variables: {
+          id,
+          userId,
+          title,
+          body,
+        },
+      });
+
+      updateCard(title, body);
+      cancelEdit();
+    }
+  }
+
+  private update = (
+    cache: DataProxy,
+    { data }: FetchResult<CreatePost, Record<string, any>>,
+  ) => {
+    if (!data) {
+      return;
+    }
+
+    const { userId } = this.props;
+    const postList = cache.readQuery<GetPosts, GetPostsVariables>({
+      query: GetPostsQuery,
+      variables: { userId },
+    });
+
+    if (!postList) {
+      return;
+    }
+
+    const { post } = data;
+    const { postsByUser } = postList;
+
+    const newPoststByUser = [...postsByUser, post];
+
+    cache.writeQuery({
+      query: GetPostsQuery,
       variables: {
         userId,
-        title,
-        body,
       },
+      data: { postsByUser: newPoststByUser },
     });
+
+    this.setState({ title: '', body: '' });
   }
 }
 

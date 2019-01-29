@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from 'semantic-ui-react';
+import { Button, Input, TextArea } from 'semantic-ui-react';
 import { MockedProvider } from 'react-apollo/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -8,6 +8,9 @@ import PostList from '../UserDetail/PostList';
 import PostCard from '../../components/PostCard';
 import { GetPosts as GetPostsQuery } from '../../graphql/queries/GetPosts';
 import { DeletePost as DeletePostMutation } from '../../graphql/mutations/DeletePost';
+import { UpdatePost as UpdatePostMutation } from '../../graphql/mutations/UpdatePost';
+import { CreatePost as CreatePostMutation } from '../../graphql/mutations/CreatePost';
+import PostCardEditor from '../../components/PostCardEditor';
 
 /* tslint:disable:max-line-length */
 const mocks = [
@@ -112,8 +115,51 @@ const mocks = [
       },
     },
   },
+  {
+    request: {
+      query: CreatePostMutation,
+      variables: {
+        userId: 1,
+        title: 'new title',
+        body: 'new body',
+      },
+    },
+    result: {
+      data: {
+        post: {
+          id: 11,
+          userId: 1,
+          title: 'new title',
+          body: 'new body',
+        },
+      },
+    },
+  },
+  {
+    request: {
+      query: UpdatePostMutation,
+      variables: {
+        id: 10,
+        userId: 1,
+        title: 'edit title',
+        body: 'edit body',
+      },
+    },
+    result: {
+      data: {
+        updatePost: {
+          id: 10,
+          userId: 1,
+          title: 'edit title',
+          body: 'edit body',
+        },
+      },
+    },
+  },
 ];
 /* tslint:enable:max-line-length */
+
+jest.setTimeout(999999);
 
 it('Show 10 posts', async () => {
   const wrapper = mount(
@@ -138,7 +184,52 @@ it('Show 10 posts', async () => {
   expect(cards).toHaveLength(11); // +1 because of the add post card
 });
 
-it('Show 9 posts after delete', async () => {
+it('Show new card', async () => {
+  const wrapper = mount(
+    <Router>
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <PostList
+          match={{
+            params: { id: '1' },
+            isExact: true,
+            path: '/user/:id',
+            url: '/user/1',
+          }}
+        />
+      </MockedProvider>
+    </Router>,
+  );
+
+  await new Promise((resolve) => setTimeout(resolve));
+  wrapper.update();
+
+  const cardEditor = wrapper.find(PostCardEditor).at(0);
+  cardEditor.setState({ title: 'new title', body: 'new body' });
+  cardEditor
+    .find(Button)
+    .at(0)
+    .simulate('click');
+
+  await new Promise((resolve) => setTimeout(resolve));
+  wrapper.update();
+
+  expect(
+    wrapper
+      .find(PostCard)
+      .at(1)
+      .props(),
+  ).toEqual({
+    id: 11,
+    userId: 1,
+    isNew: false,
+    title: 'new title',
+    body: 'new body',
+  });
+  const cardsAfterCreating = wrapper.find(PostCard);
+  expect(cardsAfterCreating).toHaveLength(12);
+});
+
+it('Show edited post value', async () => {
   const wrapper = mount(
     <Router>
       <MockedProvider mocks={mocks} addTypename={false}>
@@ -158,16 +249,64 @@ it('Show 9 posts after delete', async () => {
   wrapper.update();
 
   const cards = wrapper.find(PostCard);
-  expect(cards).toHaveLength(11);
-
-  cards
-    .at(1)
+  const card = cards.at(1);
+  card
     .find(Button)
-    .at(2)
+    .at(1)
     .simulate('click');
   await new Promise((resolve) => setTimeout(resolve));
   wrapper.update();
 
-  const cardsAfterDeleting = wrapper.find(PostCard);
-  expect(cardsAfterDeleting).toHaveLength(10);
+  const cardEditor = wrapper.find(PostCardEditor).at(1);
+  cardEditor.setState({ title: 'edit title', body: 'edit body' });
+  cardEditor
+    .find(Button)
+    .at(0)
+    .simulate('click');
+
+  await new Promise((resolve) => setTimeout(resolve));
+  card.update();
+
+  expect(card.state()).toEqual({
+    body: 'edit body',
+    isEditing: false,
+    title: 'edit title',
+  });
+
+  const cardsAfterEditing = wrapper.find(PostCard);
+  expect(cardsAfterEditing).toHaveLength(11);
 });
+
+// it('Show 9 posts after delete', async () => {
+//   const wrapper = mount(
+//     <Router>
+//       <MockedProvider mocks={mocks} addTypename={false}>
+//         <PostList
+//           match={{
+//             params: { id: '1' },
+//             isExact: true,
+//             path: '/user/:id',
+//             url: '/user/1',
+//           }}
+//         />
+//       </MockedProvider>
+//     </Router>,
+//   );
+
+//   await new Promise((resolve) => setTimeout(resolve));
+//   wrapper.update();
+
+//   const cards = wrapper.find(PostCard);
+//   expect(cards).toHaveLength(11);
+
+//   cards
+//     .at(1)
+//     .find(Button)
+//     .at(2)
+//     .simulate('click');
+//   await new Promise((resolve) => setTimeout(resolve));
+//   wrapper.update();
+
+//   const cardsAfterDeleting = wrapper.find(PostCard);
+//   expect(cardsAfterDeleting).toHaveLength(10);
+// });

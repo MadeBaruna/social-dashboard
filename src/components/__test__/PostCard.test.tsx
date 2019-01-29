@@ -1,10 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { MockedProvider } from 'react-apollo/test-utils';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Input, TextArea, Button } from 'semantic-ui-react';
 
 import PostCard from '../PostCard';
-import { Input, TextArea, Button } from 'semantic-ui-react';
+import PostCardEditor from '../PostCardEditor';
+import { UpdatePost as UpdatePostMutation } from '../../graphql/mutations/UpdatePost';
 
 it('render <PostCard /> components', () => {
   const wrapper = shallow(
@@ -45,8 +47,95 @@ it('Set input value when editing', () => {
   );
 
   const card = wrapper.find(PostCard);
-  card.find(Button).at(1).simulate('click');
+  card
+    .find(Button)
+    .at(1)
+    .simulate('click');
 
   expect(wrapper.find(Input).props().value).toEqual(title);
   expect(wrapper.find(TextArea).props().value).toEqual(body);
+});
+
+it('Close editor when cancel clicked', () => {
+  const title = 'Hello, world!';
+  const body = 'Test word\nNew Line';
+
+  const wrapper = mount(
+    <Router>
+      <MockedProvider mocks={[]}>
+        <PostCard userId={1} id={1} title={title} body={body} />
+      </MockedProvider>
+    </Router>,
+  );
+
+  const card = wrapper.find(PostCard);
+  card
+    .find(Button)
+    .at(1)
+    .simulate('click');
+
+  const cardEditor = wrapper.find(PostCardEditor);
+  cardEditor
+    .find(Button)
+    .at(1)
+    .simulate('click');
+
+  expect(wrapper.find(Input)).toHaveLength(0);
+  expect(wrapper.find(TextArea)).toHaveLength(0);
+});
+
+it('Close editor when save clicked', async () => {
+  const id = 1;
+  const userId = 1;
+  const title = 'Hello, world!';
+  const body = 'Test word\nNew Line';
+  const mocks = [
+    {
+      request: {
+        query: UpdatePostMutation,
+        variables: {
+          id,
+          userId,
+          title,
+          body,
+        },
+      },
+      result: {
+        data: {
+          updatePost: {
+            id,
+            userId,
+            title,
+            body,
+          },
+        },
+      },
+    },
+  ];
+
+  const wrapper = mount(
+    <Router>
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <PostCard userId={userId} id={id} title={title} body={body} />
+      </MockedProvider>
+    </Router>,
+  );
+
+  const card = wrapper.find(PostCard);
+  card
+    .find(Button)
+    .at(1)
+    .simulate('click');
+
+  const cardEditor = wrapper.find(PostCardEditor);
+  cardEditor
+    .find(Button)
+    .at(0)
+    .simulate('click');
+
+  await new Promise((resolve) => setTimeout(resolve));
+  wrapper.update();
+
+  expect(wrapper.find(Input)).toHaveLength(0);
+  expect(wrapper.find(TextArea)).toHaveLength(0);
 });
