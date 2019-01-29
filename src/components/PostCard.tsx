@@ -115,7 +115,6 @@ class PostCard extends Component<IProps, IState> {
     let postsByUser: GetPosts_postsByUser[] = [];
     if (data) {
       postsByUser = data.postsByUser;
-      postsByUser.reverse();
 
       const deletePostData = result.data as DeletePost;
       postsByUser = postsByUser.filter(

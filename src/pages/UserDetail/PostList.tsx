@@ -36,8 +36,8 @@ class PostList extends Component<IProps> {
             }
 
             const { postsByUser } = data;
-            return postsByUser
-              .reverse()
+            const reversedPostsByUser = [...postsByUser].reverse();
+            return reversedPostsByUser
               .map((post) => <PostCard key={post.id} {...post} />);
           }}
         </Query>

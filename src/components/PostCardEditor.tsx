@@ -63,7 +63,6 @@ class PostCardEditor extends Component<IProps, IState> {
               postsByUser = data.postsByUser;
             }
 
-            postsByUser.reverse();
             postsByUser.push(post);
 
             cache.writeQuery({
