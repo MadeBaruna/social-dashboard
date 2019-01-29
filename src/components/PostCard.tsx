@@ -40,7 +40,7 @@ class PostCard extends Component<IProps, IState> {
   };
 
   public state = {
-    isEditing: false,
+    isEditing: false || this.props.isNew,
   };
 
   public render() {
