@@ -44,5 +44,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/src/index.tsx"
+    ]
+  }
 }

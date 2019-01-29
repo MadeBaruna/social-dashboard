@@ -133,7 +133,7 @@ it('Close editor when save clicked', async () => {
     .at(0)
     .simulate('click');
 
-  await new Promise((resolve) => setTimeout(resolve));
+  await new Promise((resolve) => setTimeout(resolve, 100));
   wrapper.update();
 
   expect(wrapper.find(Input)).toHaveLength(0);

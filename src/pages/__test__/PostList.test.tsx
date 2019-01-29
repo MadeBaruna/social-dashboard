@@ -159,8 +159,6 @@ const mocks = [
 ];
 /* tslint:enable:max-line-length */
 
-jest.setTimeout(999999);
-
 it('Show 10 posts', async () => {
   const wrapper = mount(
     <Router>
@@ -224,6 +222,7 @@ it('Show new card', async () => {
     isNew: false,
     title: 'new title',
     body: 'new body',
+    onDetailPage: false,
   });
   const cardsAfterCreating = wrapper.find(PostCard);
   expect(cardsAfterCreating).toHaveLength(12);
@@ -277,36 +276,36 @@ it('Show edited post value', async () => {
   expect(cardsAfterEditing).toHaveLength(11);
 });
 
-// it('Show 9 posts after delete', async () => {
-//   const wrapper = mount(
-//     <Router>
-//       <MockedProvider mocks={mocks} addTypename={false}>
-//         <PostList
-//           match={{
-//             params: { id: '1' },
-//             isExact: true,
-//             path: '/user/:id',
-//             url: '/user/1',
-//           }}
-//         />
-//       </MockedProvider>
-//     </Router>,
-//   );
+it('Show 9 posts after delete', async () => {
+  const wrapper = mount(
+    <Router>
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <PostList
+          match={{
+            params: { id: '1' },
+            isExact: true,
+            path: '/user/:id',
+            url: '/user/1',
+          }}
+        />
+      </MockedProvider>
+    </Router>,
+  );
 
-//   await new Promise((resolve) => setTimeout(resolve));
-//   wrapper.update();
+  await new Promise((resolve) => setTimeout(resolve));
+  wrapper.update();
 
-//   const cards = wrapper.find(PostCard);
-//   expect(cards).toHaveLength(11);
+  const cards = wrapper.find(PostCard);
+  expect(cards).toHaveLength(11);
 
-//   cards
-//     .at(1)
-//     .find(Button)
-//     .at(2)
-//     .simulate('click');
-//   await new Promise((resolve) => setTimeout(resolve));
-//   wrapper.update();
+  cards
+    .at(1)
+    .find(Button)
+    .at(2)
+    .simulate('click');
+  await new Promise((resolve) => setTimeout(resolve));
+  wrapper.update();
 
-//   const cardsAfterDeleting = wrapper.find(PostCard);
-//   expect(cardsAfterDeleting).toHaveLength(10);
-// });
+  const cardsAfterDeleting = wrapper.find(PostCard);
+  expect(cardsAfterDeleting).toHaveLength(10);
+});

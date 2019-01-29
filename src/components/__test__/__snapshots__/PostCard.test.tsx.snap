@@ -9,6 +9,7 @@ possimus quisquam amet similique
 suscipit porro ipsam amet"
     id={1}
     isNew={false}
+    onDetailPage={false}
     title="this is a test title"
     userId={-1}
   />,
@@ -52,7 +53,21 @@ suscipit porro ipsam amet"
         >
           <Link
             replace={false}
-            to="/post/1"
+            to={
+              Object {
+                "pathname": "/post/1",
+                "state": Object {
+                  "post": Object {
+                    "body": "qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet",
+                    "id": 1,
+                    "title": "this is a test title",
+                    "userId": -1,
+                  },
+                },
+              }
+            }
           >
             <Button
               as="button"
@@ -315,7 +330,21 @@ suscipit porro ipsam amet"
           "children": Array [
             <Link
               replace={false}
-              to="/post/1"
+              to={
+                Object {
+                  "pathname": "/post/1",
+                  "state": Object {
+                    "post": Object {
+                      "body": "qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet",
+                      "id": 1,
+                      "title": "this is a test title",
+                      "userId": -1,
+                    },
+                  },
+                }
+              }
             >
               <Button
                 as="button"
@@ -440,7 +469,19 @@ suscipit porro ipsam amet"
                 Show Comments
               </Button>,
               "replace": false,
-              "to": "/post/1",
+              "to": Object {
+                "pathname": "/post/1",
+                "state": Object {
+                  "post": Object {
+                    "body": "qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet",
+                    "id": 1,
+                    "title": "this is a test title",
+                    "userId": -1,
+                  },
+                },
+              },
             },
             "ref": null,
             "rendered": Object {
@@ -608,7 +649,21 @@ suscipit porro ipsam amet"
           >
             <Link
               replace={false}
-              to="/post/1"
+              to={
+                Object {
+                  "pathname": "/post/1",
+                  "state": Object {
+                    "post": Object {
+                      "body": "qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet",
+                      "id": 1,
+                      "title": "this is a test title",
+                      "userId": -1,
+                    },
+                  },
+                }
+              }
             >
               <Button
                 as="button"
@@ -871,7 +926,21 @@ suscipit porro ipsam amet"
             "children": Array [
               <Link
                 replace={false}
-                to="/post/1"
+                to={
+                  Object {
+                    "pathname": "/post/1",
+                    "state": Object {
+                      "post": Object {
+                        "body": "qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet",
+                        "id": 1,
+                        "title": "this is a test title",
+                        "userId": -1,
+                      },
+                    },
+                  }
+                }
               >
                 <Button
                   as="button"
@@ -996,7 +1065,19 @@ suscipit porro ipsam amet"
                   Show Comments
                 </Button>,
                 "replace": false,
-                "to": "/post/1",
+                "to": Object {
+                  "pathname": "/post/1",
+                  "state": Object {
+                    "post": Object {
+                      "body": "qui consequuntur ducimus
+possimus quisquam amet similique
+suscipit porro ipsam amet",
+                      "id": 1,
+                      "title": "this is a test title",
+                      "userId": -1,
+                    },
+                  },
+                },
               },
               "ref": null,
               "rendered": Object {

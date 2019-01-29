@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { DataProxy } from 'apollo-cache';
 import { Mutation, MutationFn, FetchResult } from 'react-apollo';
+import { History } from 'history';
 
 import PostCardEditor from './PostCardEditor';
 import { DeletePost as DeletePostMutation } from '../graphql/mutations/DeletePost';
@@ -22,6 +23,8 @@ interface IProps {
   title: string;
   body: string;
   isNew: boolean;
+  onDetailPage: boolean;
+  history?: History;
 }
 
 interface IState {
@@ -37,6 +40,7 @@ class PostCard extends Component<IProps, IState> {
     title: '',
     body: '',
     isNew: false,
+    onDetailPage: false,
   };
 
   public state = {
@@ -46,7 +50,7 @@ class PostCard extends Component<IProps, IState> {
   };
 
   public render() {
-    const { id } = this.props;
+    const { id, userId, onDetailPage } = this.props;
     const { title, body } = this.state;
     const isEditing = this.props.isNew || this.state.isEditing;
 
@@ -74,9 +78,23 @@ class PostCard extends Component<IProps, IState> {
           </Card.Description>
         </Card.Content>
         <Card.Content extra textAlign="right">
-          <Link to={`/post/${id}`}>
-            <Button>Show Comments</Button>
-          </Link>
+          {!onDetailPage && (
+            <Link
+              to={{
+                pathname: `/post/${id}`,
+                state: {
+                  post: {
+                    id,
+                    userId,
+                    title,
+                    body,
+                  },
+                },
+              }}
+            >
+              <Button>Show Comments</Button>
+            </Link>
+          )}
           <Button icon="pencil" onClick={this.setEditing(true)} />
           <Mutation mutation={DeletePostMutation} update={this.update}>
             {(DeletePostFunction, { loading }) => (
@@ -102,14 +120,18 @@ class PostCard extends Component<IProps, IState> {
 
   private delete = (
     mutation: MutationFn<DeletePost, DeletePostVariables>,
-  ) => () => {
-    const { id } = this.props;
+  ) => async () => {
+    const { id, onDetailPage, userId, history } = this.props;
 
-    mutation({
+    await mutation({
       variables: {
         id,
       },
     });
+
+    if (onDetailPage && history) {
+      history.replace(`/user/${userId}`);
+    }
   }
 
   private update = (
@@ -122,10 +144,15 @@ class PostCard extends Component<IProps, IState> {
 
     const { userId } = this.props;
 
-    const postList = cache.readQuery<GetPosts, GetPostsVariables>({
-      query: GetPostsQuery,
-      variables: { userId },
-    });
+    let postList;
+    try {
+      postList = cache.readQuery<GetPosts, GetPostsVariables>({
+        query: GetPostsQuery,
+        variables: { userId },
+      });
+    } catch (err) {
+      return;
+    }
 
     if (!postList) {
       return;
