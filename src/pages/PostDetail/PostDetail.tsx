@@ -9,6 +9,8 @@ import { GetPost as GetPostQuery } from '../../graphql/queries/GetPost';
 import { GetPost } from '../../graphql/queries/__generated__/GetPost';
 import { GetPosts_postsByUser as Post } from '../../graphql/queries/__generated__/GetPosts';
 import PostCard from '../../components/PostCard';
+import CommentCard from '../../components/CommentCard';
+import CommentCardEditor from '../../components/CommentCardEditor';
 
 interface IProps {
   match: match<{ id: string }>;
@@ -60,13 +62,10 @@ class PostDetail extends Component<IProps> {
                   isNew={false}
                   {...post}
                 />
-                {reversedComments.length === 0 && (
-                  <Header as="h4" textAlign="center">
-                    No Comment Yet!
-                  </Header>
-                )}
+                <Header as="h3">{reversedComments.length} Comments</Header>
+                <CommentCardEditor postId={Number(id)} />
                 {reversedComments.map((comment) => (
-                  <p key={comment.id}>{comment.body}</p>
+                  <CommentCard key={comment.id} {...comment} postId={Number(id)} />
                 ))}
               </>
             );
