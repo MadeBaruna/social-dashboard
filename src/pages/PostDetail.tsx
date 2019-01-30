@@ -5,12 +5,12 @@ import { match } from 'react-router';
 import styled from 'styled-components';
 import { Location, History } from 'history';
 
-import { GetPost as GetPostQuery } from '../../graphql/queries/GetPost';
-import { GetPost } from '../../graphql/queries/__generated__/GetPost';
-import { GetPosts_postsByUser as Post } from '../../graphql/queries/__generated__/GetPosts';
-import PostCard from '../../components/PostCard';
-import CommentCard from '../../components/CommentCard';
-import CommentCardEditor from '../../components/CommentCardEditor';
+import { GetPost as GetPostQuery } from '../graphql/queries/GetPost';
+import { GetPost } from '../graphql/queries/__generated__/GetPost';
+import { GetPosts_postsByUser as Post } from '../graphql/queries/__generated__/GetPosts';
+import PostCard from '../components/PostCard';
+import CommentCard from '../components/CommentCard';
+import CommentCardEditor from '../components/CommentCardEditor';
 
 interface IProps {
   match: match<{ id: string }>;

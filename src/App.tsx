@@ -9,7 +9,7 @@ import Header from './components/Header';
 import UserList from './pages/UserList';
 import NotFoundPage from './pages/NotFoundPage';
 import UserDetail from './pages/UserDetail/UserDetail';
-import PostDetail from './pages/PostDetail/PostDetail';
+import PostDetail from './pages/PostDetail';
 
 class App extends Component {
   public render() {

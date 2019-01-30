@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 import { createMemoryHistory } from 'history';
 
 import PostCard from '../../components/PostCard';
-import PostDetail from '../PostDetail/PostDetail';
+import PostDetail from '../PostDetail';
 import CommentCardEditor from '../../components/CommentCardEditor';
 import CommentCard from '../../components/CommentCard';
 import { DeletePost as DeletePostMutation } from '../../graphql/mutations/DeletePost';
