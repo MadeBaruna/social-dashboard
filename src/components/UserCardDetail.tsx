@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ImageLoader from './ImageLoader';
 
 const DetailWrapper = styled.div`
   display: flex;
@@ -59,8 +60,8 @@ const UserCardDetail = ({
             <Icon name="building" /> {company.name}
             <br />
           </div>
-          <div>
-            <Image rounded src={`https://via.placeholder.com/150/${phone}`} />
+          <div style={{ width: 150 }}>
+            <ImageLoader imageUrl={`https://via.placeholder.com/150/${phone}`} />
           </div>
         </DetailWrapper>
       </Card.Description>

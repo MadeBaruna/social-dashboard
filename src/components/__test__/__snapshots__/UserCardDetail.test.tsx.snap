@@ -84,12 +84,15 @@ ShallowWrapper {
                 Kumparan
                 <br />
               </div>
-              <div>
-                <Image
-                  as="img"
-                  rounded={true}
-                  src="https://via.placeholder.com/150/1234567890"
-                  ui={true}
+              <div
+                style={
+                  Object {
+                    "width": 150,
+                  }
+                }
+              >
+                <ImageLoader
+                  imageUrl="https://via.placeholder.com/150/1234567890"
                 />
               </div>
             </ForwardRef>
@@ -172,12 +175,15 @@ ShallowWrapper {
                   Kumparan
                   <br />
                 </div>
-                <div>
-                  <Image
-                    as="img"
-                    rounded={true}
-                    src="https://via.placeholder.com/150/1234567890"
-                    ui={true}
+                <div
+                  style={
+                    Object {
+                      "width": 150,
+                    }
+                  }
+                >
+                  <ImageLoader
+                    imageUrl="https://via.placeholder.com/150/1234567890"
                   />
                 </div>
               </ForwardRef>
@@ -257,12 +263,15 @@ ShallowWrapper {
                   Kumparan
                   <br />
                 </div>
-                <div>
-                  <Image
-                    as="img"
-                    rounded={true}
-                    src="https://via.placeholder.com/150/1234567890"
-                    ui={true}
+                <div
+                  style={
+                    Object {
+                      "width": 150,
+                    }
+                  }
+                >
+                  <ImageLoader
+                    imageUrl="https://via.placeholder.com/150/1234567890"
                   />
                 </div>
               </ForwardRef>,
@@ -311,12 +320,15 @@ ShallowWrapper {
                     Kumparan
                     <br />
                   </div>,
-                  <div>
-                    <Image
-                      as="img"
-                      rounded={true}
-                      src="https://via.placeholder.com/150/1234567890"
-                      ui={true}
+                  <div
+                    style={
+                      Object {
+                        "width": 150,
+                      }
+                    }
+                  >
+                    <ImageLoader
+                      imageUrl="https://via.placeholder.com/150/1234567890"
                     />
                   </div>,
                 ],
@@ -491,23 +503,20 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <Image
-                      as="img"
-                      rounded={true}
-                      src="https://via.placeholder.com/150/1234567890"
-                      ui={true}
+                    "children": <ImageLoader
+                      imageUrl="https://via.placeholder.com/150/1234567890"
                     />,
+                    "style": Object {
+                      "width": 150,
+                    },
                   },
                   "ref": null,
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "function",
+                    "nodeType": "class",
                     "props": Object {
-                      "as": "img",
-                      "rounded": true,
-                      "src": "https://via.placeholder.com/150/1234567890",
-                      "ui": true,
+                      "imageUrl": "https://via.placeholder.com/150/1234567890",
                     },
                     "ref": null,
                     "rendered": null,
@@ -520,7 +529,7 @@ ShallowWrapper {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-bdVaJa",
+                  "componentId": "sc-bwzfXH",
                   "isStatic": true,
                   "rules": Array [
                     "
@@ -538,7 +547,7 @@ ShallowWrapper {
                 "displayName": "styled.div",
                 "foldedComponentIds": Array [],
                 "render": [Function],
-                "styledComponentId": "sc-bdVaJa",
+                "styledComponentId": "sc-bwzfXH",
                 "target": "div",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
@@ -689,12 +698,15 @@ ShallowWrapper {
                   Kumparan
                   <br />
                 </div>
-                <div>
-                  <Image
-                    as="img"
-                    rounded={true}
-                    src="https://via.placeholder.com/150/1234567890"
-                    ui={true}
+                <div
+                  style={
+                    Object {
+                      "width": 150,
+                    }
+                  }
+                >
+                  <ImageLoader
+                    imageUrl="https://via.placeholder.com/150/1234567890"
                   />
                 </div>
               </ForwardRef>
@@ -777,12 +789,15 @@ ShallowWrapper {
                     Kumparan
                     <br />
                   </div>
-                  <div>
-                    <Image
-                      as="img"
-                      rounded={true}
-                      src="https://via.placeholder.com/150/1234567890"
-                      ui={true}
+                  <div
+                    style={
+                      Object {
+                        "width": 150,
+                      }
+                    }
+                  >
+                    <ImageLoader
+                      imageUrl="https://via.placeholder.com/150/1234567890"
                     />
                   </div>
                 </ForwardRef>
@@ -862,12 +877,15 @@ ShallowWrapper {
                     Kumparan
                     <br />
                   </div>
-                  <div>
-                    <Image
-                      as="img"
-                      rounded={true}
-                      src="https://via.placeholder.com/150/1234567890"
-                      ui={true}
+                  <div
+                    style={
+                      Object {
+                        "width": 150,
+                      }
+                    }
+                  >
+                    <ImageLoader
+                      imageUrl="https://via.placeholder.com/150/1234567890"
                     />
                   </div>
                 </ForwardRef>,
@@ -916,12 +934,15 @@ ShallowWrapper {
                       Kumparan
                       <br />
                     </div>,
-                    <div>
-                      <Image
-                        as="img"
-                        rounded={true}
-                        src="https://via.placeholder.com/150/1234567890"
-                        ui={true}
+                    <div
+                      style={
+                        Object {
+                          "width": 150,
+                        }
+                      }
+                    >
+                      <ImageLoader
+                        imageUrl="https://via.placeholder.com/150/1234567890"
                       />
                     </div>,
                   ],
@@ -1096,23 +1117,20 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <Image
-                        as="img"
-                        rounded={true}
-                        src="https://via.placeholder.com/150/1234567890"
-                        ui={true}
+                      "children": <ImageLoader
+                        imageUrl="https://via.placeholder.com/150/1234567890"
                       />,
+                      "style": Object {
+                        "width": 150,
+                      },
                     },
                     "ref": null,
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "function",
+                      "nodeType": "class",
                       "props": Object {
-                        "as": "img",
-                        "rounded": true,
-                        "src": "https://via.placeholder.com/150/1234567890",
-                        "ui": true,
+                        "imageUrl": "https://via.placeholder.com/150/1234567890",
                       },
                       "ref": null,
                       "rendered": null,
@@ -1125,7 +1143,7 @@ ShallowWrapper {
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": Array [],
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-bdVaJa",
+                    "componentId": "sc-bwzfXH",
                     "isStatic": true,
                     "rules": Array [
                       "
@@ -1143,7 +1161,7 @@ ShallowWrapper {
                   "displayName": "styled.div",
                   "foldedComponentIds": Array [],
                   "render": [Function],
-                  "styledComponentId": "sc-bdVaJa",
+                  "styledComponentId": "sc-bwzfXH",
                   "target": "div",
                   "toString": [Function],
                   "warnTooManyClasses": [Function],

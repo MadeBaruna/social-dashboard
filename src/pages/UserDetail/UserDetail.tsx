@@ -6,6 +6,7 @@ import { GetUserDetail as GetUserDetailQuery } from '../../graphql/queries/GetUs
 import { match, Switch, Route } from 'react-router';
 import UserCardDetail from '../../components/UserCardDetail';
 import PostList from './PostList';
+import AlbumList from './AlbumList';
 
 interface IProps {
   match: match<{ id: string }>;
@@ -44,6 +45,7 @@ class UserDetail extends Component<IProps> {
         </Query>
         <Switch>
           <Route exact path="/user/:id" component={PostList} />
+          <Route exact path="/user/:id/albums" component={AlbumList} />
         </Switch>
       </>
     );

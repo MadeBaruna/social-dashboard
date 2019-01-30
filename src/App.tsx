@@ -22,9 +22,9 @@ class App extends Component {
               <Header />
               <Switch>
                 <Route exact path="/" component={UserList} />
+                <Route exact path="/post/:id" component={PostDetail} />
                 <Route exact path="/user/:id" component={UserDetail} />
                 <Route exact path="/user/:id/albums" component={UserDetail} />
-                <Route exact path="/post/:id" component={PostDetail} />
                 <Route component={NotFoundPage} />
               </Switch>
             </>
