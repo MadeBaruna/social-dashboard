@@ -12,8 +12,8 @@ docker build -t jsonplaceholder-graphql github.com/MadeBaruna/jsonplaceholder-gr
 docker run -p 5001:5001 -d jsonplaceholder-graphql
 
 # start the app
-git clone https://github.com/MadeBaruna/social-dashboard-kumparan-assessment.git
-yarn
+git clone https://github.com/MadeBaruna/social-dashboard-kumparan-assessment.git 
+cd social-dashboard-kumparan-assessment && yarn
 yarn start
 ```
 
