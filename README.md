@@ -11,7 +11,8 @@ The jsonplaceholder-graphql needs to be running first
 docker build -t jsonplaceholder-graphql github.com/MadeBaruna/jsonplaceholder-graphql
 docker run -p 5001:5001 -d jsonplaceholder-graphql
 
-# start jsonplaceholder-graphql'
+# start the app
+git clone https://github.com/MadeBaruna/social-dashboard-kumparan-assessment.git
 yarn
 yarn start
 ```
