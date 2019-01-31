@@ -27,6 +27,9 @@
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
+    "testcafe": "^0.23.3",
+    "testcafe-live": "^0.1.4",
+    "testcafe-react-selectors": "^3.0.3",
     "tslint": "^5.12.1",
     "waait": "^1.0.3"
   },
@@ -35,7 +38,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "now-build": "react-scripts build && mv build dist"
+    "now-build": "react-scripts build && mv build dist",
+    "test-e2e": "testcafe chrome e2e/",
+    "test-e2e-live": "testcafe-live chrome e2e/"
   },
   "eslintConfig": {
     "extends": "react-app"
