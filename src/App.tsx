@@ -10,6 +10,7 @@ import UserList from './pages/UserList';
 import NotFoundPage from './pages/NotFoundPage';
 import UserDetail from './pages/UserDetail/UserDetail';
 import PostDetail from './pages/PostDetail';
+import AlbumDetail from './pages/AlbumDetail';
 
 class App extends Component {
   public render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={UserList} />
                 <Route exact path="/post/:id" component={PostDetail} />
+                <Route exact path="/album/:id" component={AlbumDetail} />
                 <Route exact path="/user/:id" component={UserDetail} />
                 <Route exact path="/user/:id/albums" component={UserDetail} />
                 <Route component={NotFoundPage} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card, Loader } from 'semantic-ui-react';
+import { Card, Loader } from 'semantic-ui-react';
 import { Query } from 'react-apollo';
 import { match } from 'react-router';
 
