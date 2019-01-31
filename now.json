@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "social-media-kumparan-assessment",
+  "alias": "social-media-kumparan-assessment",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": "^/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "^/manifest.json", "dest": "/manifest.json" },
+    { "src": "^/(.*)", "dest": "/index.html" }
+  ],
+  "build": {
+    "env": {
+      "REACT_APP_GRAPHQL_URL": "https://jsonplaceholder-graphql.now.sh"
+    }
+  }
+}
