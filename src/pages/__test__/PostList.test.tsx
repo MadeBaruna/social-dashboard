@@ -179,7 +179,7 @@ it('Show 10 posts', async () => {
   wrapper.update();
 
   const cards = wrapper.find(PostCard);
-  expect(cards).toHaveLength(11); // +1 because of the add post card
+  expect(cards).toHaveLength(10);
 });
 
 it('Show new card', async () => {
@@ -214,7 +214,7 @@ it('Show new card', async () => {
   expect(
     wrapper
       .find(PostCard)
-      .at(1)
+      .at(0)
       .props(),
   ).toEqual({
     id: 11,
@@ -225,7 +225,7 @@ it('Show new card', async () => {
     onDetailPage: false,
   });
   const cardsAfterCreating = wrapper.find(PostCard);
-  expect(cardsAfterCreating).toHaveLength(12);
+  expect(cardsAfterCreating).toHaveLength(11);
 });
 
 it('Show edited post value', async () => {
@@ -248,7 +248,7 @@ it('Show edited post value', async () => {
   wrapper.update();
 
   const cards = wrapper.find(PostCard);
-  const card = cards.at(1);
+  const card = cards.at(0);
   card
     .find(Button)
     .at(1)
@@ -273,7 +273,7 @@ it('Show edited post value', async () => {
   });
 
   const cardsAfterEditing = wrapper.find(PostCard);
-  expect(cardsAfterEditing).toHaveLength(11);
+  expect(cardsAfterEditing).toHaveLength(10);
 });
 
 it('Show 9 posts after delete', async () => {
@@ -296,10 +296,10 @@ it('Show 9 posts after delete', async () => {
   wrapper.update();
 
   const cards = wrapper.find(PostCard);
-  expect(cards).toHaveLength(11);
+  expect(cards).toHaveLength(10);
 
   cards
-    .at(1)
+    .at(0)
     .find(Button)
     .at(2)
     .simulate('click');
@@ -307,5 +307,5 @@ it('Show 9 posts after delete', async () => {
   wrapper.update();
 
   const cardsAfterDeleting = wrapper.find(PostCard);
-  expect(cardsAfterDeleting).toHaveLength(10);
+  expect(cardsAfterDeleting).toHaveLength(9);
 });

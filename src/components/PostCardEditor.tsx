@@ -32,9 +32,8 @@ interface IProps {
   id: number;
   title: string;
   body: string;
-  isNew: boolean;
-  cancelEdit: () => void;
-  updateCard: (title: string, body: string) => void;
+  cancelEdit?: () => void;
+  updateCard?: (title: string, body: string) => void;
 }
 
 interface IState {
@@ -43,6 +42,12 @@ interface IState {
 }
 
 class PostCardEditor extends Component<IProps, IState> {
+  public static defaultProps = {
+    id: -1,
+    title: '',
+    body: '',
+  };
+
   public state = {
     title: this.props.title,
     body: this.props.body,
@@ -50,11 +55,11 @@ class PostCardEditor extends Component<IProps, IState> {
 
   public render() {
     const { title, body } = this.state;
-    const { isNew, cancelEdit } = this.props;
+    const { id, cancelEdit } = this.props;
 
     return (
       <Card fluid>
-        {isNew && (
+        {id === -1 && (
           <Card.Content>
             <Header as="h3">Create a new post</Header>
           </Card.Content>
@@ -92,13 +97,13 @@ class PostCardEditor extends Component<IProps, IState> {
                     )}
                     primary
                   >
-                    {isNew ? 'Submit' : 'Save'}
+                    {id === -1 ? 'Submit' : 'Save'}
                   </Button>
                 )}
               </Mutation>
             )}
           </Mutation>
-          {!isNew && <Button onClick={cancelEdit}>Cancel</Button>}
+          {id !== -1 && <Button onClick={cancelEdit}>Cancel</Button>}
         </Card.Content>
       </Card>
     );
@@ -116,10 +121,10 @@ class PostCardEditor extends Component<IProps, IState> {
     createMutationFunction: MutationFn<CreatePost, CreatePostVariables>,
     updateMutationFunction: MutationFn<UpdatePost, UpdatePostVariables>,
   ) => async () => {
-    const { id, userId, isNew, updateCard, cancelEdit } = this.props;
+    const { id, userId, updateCard, cancelEdit } = this.props;
     const { title, body } = this.state;
 
-    if (isNew) {
+    if (id === -1) {
       createMutationFunction({
         variables: {
           userId,
@@ -137,8 +142,10 @@ class PostCardEditor extends Component<IProps, IState> {
         },
       });
 
-      updateCard(title, body);
-      cancelEdit();
+      if (updateCard && cancelEdit) {
+        updateCard(title, body);
+        cancelEdit();
+      }
     }
   }
 

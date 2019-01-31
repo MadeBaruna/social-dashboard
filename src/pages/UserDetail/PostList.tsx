@@ -6,6 +6,7 @@ import { GetPosts as GetPostsQuery } from '../../graphql/queries/GetPosts';
 import { match } from 'react-router';
 import PostCard from '../../components/PostCard';
 import styled from 'styled-components';
+import PostCardEditor from '../../components/PostCardEditor';
 
 interface IProps {
   match: match<{ id: string }>;
@@ -38,7 +39,7 @@ class PostList extends Component<IProps> {
             const reversedPostsByUser = [...postsByUser].reverse();
             return (
               <>
-                <PostCard isNew={true} userId={Number(id)} />
+                <PostCardEditor userId={Number(id)} />
                 {reversedPostsByUser.map((post) => (
                   <PostCard key={post.id} {...post} />
                 ))}
