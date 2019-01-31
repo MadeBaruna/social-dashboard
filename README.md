@@ -1,5 +1,6 @@
 # Social Media Dashboard
 This is a project for Kumparan frontend technical assessment
+### [Live Demo](https://social-media-kumparan-assessment.now.sh/)
 
 # Running
 ### Start local development
