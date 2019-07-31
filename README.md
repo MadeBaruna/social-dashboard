@@ -11,7 +11,7 @@ docker run -p 5001:5001 -d jsonplaceholder-graphql
 
 # start the app
 git clone https://github.com/MadeBaruna/social-dashboard.git 
-cd social-dashboard-kumparan-assessment && yarn
+cd social-dashboard && yarn
 yarn start
 ```
 
