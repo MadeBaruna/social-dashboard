@@ -1,7 +1,5 @@
 # Social Media Dashboard
-This is a project for Kumparan frontend technical assessment.  
 A social media dashboard using https://jsonplaceholder.typicode.com (although self-hosted with json-server for CRUD reasons + wrapped with Apollo GraphQL [here](https://github.com/MadeBaruna/jsonplaceholder-graphql))
-### [Live Demo](https://social-media-kumparan-assessment.now.sh/) (please wait for the backend server to wake up)
 
 # Running
 ### Start local development
@@ -12,7 +10,7 @@ docker build -t jsonplaceholder-graphql github.com/MadeBaruna/jsonplaceholder-gr
 docker run -p 5001:5001 -d jsonplaceholder-graphql
 
 # start the app
-git clone https://github.com/MadeBaruna/social-dashboard-kumparan-assessment.git 
+git clone https://github.com/MadeBaruna/social-dashboard.git 
 cd social-dashboard-kumparan-assessment && yarn
 yarn start
 ```
